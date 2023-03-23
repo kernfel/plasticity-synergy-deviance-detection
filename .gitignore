@@ -1,0 +1,12 @@
+.env/
+.vscode/
+__pycache__/
+output/
+tmp/
+.ipynb_checkpoints/
+GeNNworkspace/
+GPU0/
+GPU1/
+data/*
+!data/README
+*.pdf
