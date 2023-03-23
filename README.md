@@ -20,3 +20,4 @@ Processing multiple ISIs or templates simultaneously is currently not supported.
 
 ### Figures
 Finally, run each of the `Fig_*.ipynb*` notebooks. Figure PDFs will be placed in `paper-1/`.
+For several figures, both the processed data (for stats across networks) and a demonstrator network's raw data (as examples) are used. To select the sample network/stimulus, change the relevant entries in `demonstrator.py`.
