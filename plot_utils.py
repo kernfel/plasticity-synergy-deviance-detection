@@ -15,7 +15,9 @@ colors = {
     'msc': 'b',
     'Depression': '#9b19f5',
     'Threshold': 'C2',
-    'Vm': 'orange'
+    'Vm': 'orange',
+    'exc': 'r',
+    'inh': 'b'
 }
 
 def _quantity_label(core, seq, stim, index, mean):
