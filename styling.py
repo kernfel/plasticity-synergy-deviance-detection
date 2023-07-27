@@ -62,6 +62,7 @@ sns.set_theme(style='ticks', font_scale=0.75, rc={
 
 label_kwargs = {'fontsize': 12, 'fontweight': 'bold'}
 annotation_kwargs = {'fontsize': 7}
+axline_kwargs = {'color': 'darkgrey', 'zorder': -1, 'lw': sns.mpl.rcParams['axes.linewidth']}
 
 panel_labels = 'ABCDEFGHIJK'
 # panel_labels = 'abcdefghijk'
