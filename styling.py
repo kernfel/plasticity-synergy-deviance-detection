@@ -66,6 +66,7 @@ label_kwargs = {'fontsize': 12, 'fontweight': 'bold'}
 annotation_kwargs = {'fontsize': 7}
 axline_kwargs = {'color': 'darkgrey', 'zorder': -1, 'lw': sns.mpl.rcParams['axes.linewidth']}
 
+cmap_seq = 'viridis'
 cmap_div = LinearSegmentedColormap.from_list(
 # From http://www.ccctool.com/html_v_0_9_0_3/CCC_Tool/cccTool.html
     'ccc_divergent', list(zip([0, .16, .35, .5, .62, .8, 1],
