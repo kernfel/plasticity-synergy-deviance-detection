@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.colors import colorConverter
 from brian2.units import msecond
 import scipy.stats as stats
@@ -57,20 +56,6 @@ def fullwidth(height):
     return styling.fig_width, height * styling.fig_width / 6.29
 def halfwidth(height):
     return styling.fig_width/2, height * styling.fig_width/2 / 3
-
-
-# From http://www.ccctool.com/html_v_0_9_0_3/CCC_Tool/cccTool.html
-ccc_divergent = LinearSegmentedColormap.from_list(
-    'ccc_divergent', list(zip([0, .16, .35, .5, .62, .8, 1],
-        np.asarray([
-            [.0862745098039216,0.00392156862745098,0.298039215686275, 1.],
-            [.054902,0.317647,0.709804, 1.],
-            [.0705882,0.854902,0.870588, 1.],
-            [1, 1, 1, 1.],
-            [.94902,0.823529,0.321569, 1.],
-            [.811765,0.345098,0.113725, 1.],
-            [.188235294117647,0,0.0705882352941176, 1.]
-        ]))))
 
 
 def grouped_bars(series, xlabels, slabels, ax, w0=0.7):
