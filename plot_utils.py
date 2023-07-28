@@ -10,9 +10,9 @@ import styling
 
 
 colors = {
-    'std': styling.offblack,
-    'dev': 'r',
-    'msc': 'b',
+    'std': '#25126c',
+    'dev': '#ae131a',
+    'msc': '#e7c518',
     'Depression': '#9b19f5',
     'Threshold': 'C2',
     'Vm': 'orange',
