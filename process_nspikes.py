@@ -7,33 +7,40 @@ from digest import conds
 out_fname = 'nspikes.h5'
 
 
-def get_nspikes(cfg, isi, templ):
+def get_nspikes(cfg, ISIs, templ):
     '''
     Retrieves the average number of spikes per trial, summed across the entire network.
     Structure: {STD: {TA: {cond: ndarray(nets*pairs*2)}}}
     '''
-    nspikes = {STD: {TA: {cond: [] for cond in conds} for TA in cfg.TAs} for STD in cfg.STDs}
+    nspikes = {isi: {STD: {TA: {cond: [] for cond in conds} for TA in cfg.TAs} for STD in cfg.STDs} for isi in ISIs}
     print('get_nspikes')
     for STD in cfg.STDs:
         for TA in cfg.TAs:
-            print(f'STD {STD}, TA {TA} ...')
-            for net in range(cfg.N_networks):
-                res = load_results(cfg.fname.format(net=net, isi=isi, STD=STD, TA=TA, templ=templ), compress=True, process_dynamics=False)
-                for ipair, pair in enumerate(cfg.pairings):
-                    for istim, stim in enumerate(pair):
-                        for cond in conds:
-                            data = res['spikes'][ipair][stim][cond]
-                            nspikes[STD][TA][cond].append(data['nspikes'].sum(1).mean())
-                print(net, end=' ', flush=True)
+            for isi in ISIs:
+                print(f'isi {isi}, STD {STD}, TA {TA} ...')
+                for net in range(cfg.N_networks):
+                    res = load_results(cfg.fname.format(net=net, isi=isi, STD=STD, TA=TA, templ=templ), compress=True, process_dynamics=False)
+                    for ipair, pair in enumerate(cfg.pairings):
+                        for istim, stim in enumerate(pair):
+                            for cond in conds:
+                                data = res['spikes'][ipair][stim][cond]
+                                nspikes[isi][STD][TA][cond].append(data['nspikes'].sum(1).mean())
+                    print(net, end=' ', flush=True)
 
-            nspikes[STD][TA] = {cond: np.asarray(x) for cond, x in nspikes[STD][TA].items()}
-            print()
+                nspikes[isi][STD][TA] = {cond: np.asarray(x) for cond, x in nspikes[isi][STD][TA].items()}
+                print()
     return nspikes
 
 
 def process_to_disk(cfg, isi = None, templ = 0):
     if isi is None:
-        isi = cfg.ISIs[0]
+        isi = cfg.ISIs
+    else:
+        try:
+            for _ in isi:
+                break
+        except ValueError:
+            isi = [isi]
     nspikes = get_nspikes(cfg, isi, templ)
     dd.io.save(out_fname, nspikes)
 
