@@ -298,7 +298,7 @@ def load_results(fname, dynamics_supplements={}, raw_fbase=None, compress=False,
         return dict(zip(template_keys, dd.io.load(fname, [f'/{key}' for key in template_keys])))
     rundata = dd.io.load(fname)
     rundata['raw_fbase'] = raw_fbase or rundata.get('raw_fbase', None)
-    if rundata['raw_fbase'] is not None and 'raw_dynamics' not in rundata:
+    if ('dynamic_variables' in rundata) and (rundata['raw_fbase'] is not None) and ('raw_dynamics' not in rundata):
         rundata['raw_dynamics'] = {}
         for varname in rundata['dynamic_variables']:
             rundata['raw_dynamics'][varname] = open_memmap(raw_dynamics_filename(rundata['raw_fbase'], varname), mode='r')
