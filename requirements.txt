@@ -6,7 +6,7 @@ backcall==0.2.0
 beautifulsoup4==4.11.1
 bleach==5.0.0
 Brian2==2.5.0.3
--e git+ssh://git@github.com/kernfel/brian2genn.git@94e801cd7fd5a80f99049313e059ecb78a422bf5#egg=Brian2GeNN
+Brian2GeNN==1.7.0
 cffi==1.15.0
 contourpy==1.0.6
 cycler==0.11.0
