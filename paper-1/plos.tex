@@ -71,16 +71,16 @@ We modeled neurons as leaky integrate-and-fire units whose membrane potential $V
 \begin{equation}
     \tau_m \frac{dV_m}{dt} = (V_{rest}-V_m) + R_m I_{syn}(t)
 \end{equation}
-with $\tau_m = 30$~ms the membrane time constant, $R_m = 100$ MOhm the membrane resistance, and $V_{rest} = -60$~mV the resting membrane potential. Synaptic currents were modeled in a conductance-based manner, following
+with membrane time constant $\tau_m = 30$~ms, membrane resistance $R_m = 100$ MOhm, and resting membrane potential $V_{rest} = -60$~mV. Synaptic currents were modeled in a conductance-based manner, following
 \begin{equation}
     I_{syn} = g_e(E_e-V_m) + g_i(E_i-V_m)
 \end{equation}
-with $E_e = 0$~mV and $E_i = -100$~mV the excitatory and inhibitory reversal potentials, respectively. Synaptic conductances evolved according to
+with excitatory reversal potential $E_e = 0$~mV and inhibitory reversal potential $E_i = -100$~mV. Synaptic conductances evolved according to
 \begin{align} 
     \tau_e \frac{dg_e}{dt} &= -g_e + \sum_{j \in \boldsymbol E} U x_j w \delta(t - \hat{t}_j) \nonumber \\
     \tau_i \frac{dg_i}{dt} &= -g_i + \sum_{j \in \boldsymbol I} w \delta(t - \hat{t}_j) \label{eq:gsyn}
 \end{align}
-with $\tau_e = 2$~ms the excitatory time constant, echoing AMPA receptor dynamics \citep{Hausser1997-cn}, $\tau_i = 4$~ms the inhibitory time constant, echoing GABA-A receptor dynamics \citep{Destexhe1994-oc}, $\boldsymbol E$ and $\boldsymbol I$ the sets of presynaptic excitatory and inhibitory neurons, respectively, $w$ the synaptic weight, $\delta(\cdot)$ the Dirac delta function, and $\hat{t}$ the spike times.
+with excitatory time constant $\tau_e = 2$~ms, echoing AMPA receptor dynamics \citep{Hausser1997-cn}, inhibitory time constant $\tau_i = 4$~ms, echoing GABA-A receptor dynamics \citep{Destexhe1994-oc}, the sets of presynaptic excitatory and inhibitory neurons $\boldsymbol E$ and $\boldsymbol I$, respectively, synaptic weight $w$, the Dirac delta function $\delta(\cdot)$, and spike times $\hat{t}$.
 
 Excitatory, but not inhibitory, synapses were subject to short-term depression (STD), simplified from \cite{Tsodyks1997-qt}; since synaptic transmission was not stochastic, we modeled the depression variable $x_j$ as a property of the presynaptic neuron $j$,
 \begin{equation}
