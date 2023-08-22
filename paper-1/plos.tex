@@ -141,14 +141,15 @@ of a neuron $j$ to a given stimulus $S$ as a measure of the presynaptic drive. B
 \end{equation}
 Notice that $\D{}{}$ is measured in volts due to scaling with $k$, and is therefore roughly comparable to $\T{}{}$, albeit more approximate.
 
-\section{Results}\label{sec:results}
-
-\subsection{Deviance detection}\label{sec:dd}
-
-We define deviance detection as a network's ability to pick out unexpected inputs from an otherwise homogeneous or otherwise unsurprising stream of inputs. Following related research \citep{Kubota2021-dx,Harms2014-ah,Jacobsen2001-sc}, we were careful to exclude effects due to stimulus identity (i.e., avoiding direct comparisons between different stimuli) or due to adaptation to frequent stimulus presentation (i.e., avoiding direct comparisons of A in the \dev{} sequence to A in the \std{} sequence). In other words, we used the \msc{} sequence as a neutral baseline where the target stimulus was presented no more often than in the \dev{} sequence, but no expectation of a competing stimulus B could be formed. To quantify deviance detection, we compared the mean number of spikes fired per neuron in response to target stimulus A in the \dev{} and \msc{} sequences, denoted as $\mean{\R[dev]{A}{}}$ and $\mean{\R[msc]{A}{}}$, respectively, and define a deviance detection index (DDI) as
+\subsubsection{Quantifying deviance detection}\label{sec:DDI}
+Finally, we define true deviance detection as a network's ability to pick out unexpected inputs from an otherwise homogeneous or otherwise unsurprising stream of inputs. Following related research \citep{Kubota2021-dx,Harms2014-ah,Jacobsen2001-sc}, we were careful to exclude effects due to stimulus identity (i.e., avoiding direct comparisons between different stimuli) or due to adaptation to frequent stimulus presentation (i.e., avoiding direct comparisons of A in the \dev{} sequence to A in the \std{} sequence). In other words, we used the \msc{} sequence as a neutral baseline where the target stimulus was presented no more often than in the \dev{} sequence, but no expectation of a competing stimulus B could be formed. To quantify true deviance detection, we compared the mean number of spikes fired per neuron in response to target stimulus A in the \dev{} and \msc{} sequences, denoted as $\mean{\R[dev]{A}{}}$ and $\mean{\R[msc]{A}{}}$, respectively, and define a deviance detection index (DDI) as
 \begin{equation}
     DDI = \frac{\mean{\R[dev]{A}{}} - \mean{\R[msc]{A}{}}}{\mean{\R[dev]{A}{}} + \mean{\R[msc]{A}{}}} \label{eq:ddi}
 \end{equation}
+
+\section{Results}\label{sec:results}
+
+\subsection{Deviance detection}\label{sec:dd}
 
 \begin{figure}
     \includegraphics[width=\linewidth]{fig-dd}
