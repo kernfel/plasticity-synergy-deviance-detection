@@ -13,10 +13,10 @@
 \DeclareSIUnit\Molar{M}
 
 % FK: Noted, but these \newcommands are really very useful here:
-% Shorter italic dev/msc/std
-\newcommand{\dev}{\textit{dev}}
-\newcommand{\msc}{\textit{msc}}
-\newcommand{\std}{\textit{std}}
+% Nomenclature
+\newcommand{\dev}{\textit{A-as-dev}}
+\newcommand{\msc}{\textit{A-in-con}}
+\newcommand{\std}{\textit{A-as-std}}
 
 % Common notation
 \newcommand{\R}[3][]{{}^{#1}_{}\boldsymbol R^{#2}_{#3}}
@@ -113,7 +113,7 @@ with increment $\hat{\theta} = 1$~mV and decay time constant $\tau_{\theta} = 1$
 
 \subsection{Paradigm}\label{sec:paradigm}
 
-To investigate true DD, we used a classical oddball paradigm as illustrated in \FIG{setup}D, presenting a total of 500 stimuli at regular intervals of 500~ms. Target stimuli (labeled ``A'' or ``target'' hereafter) and distractor stimuli (labeled ``B'' to ``E'') were presented in three randomized sequences: The ``standard'' sequence (\std{}), consisting of 400 presentations of A and 100 presentations of B; the ``deviant'' sequence (\dev{}) with 100 A and 400 B, and the many-standards control sequence (\msc{}) with 100 presentations of each of the stimuli A through E. In this way, A is presented as the predominant and therefore expected stimulus (\std{}), as an infrequent violation of an expectation (of B, \dev{}), and, to control for pure adaptation effects, as an equally infrequent stimulus with no strong expectation of any particular input (\msc{}).
+To investigate true DD, we used a classical oddball paradigm as illustrated in \FIG{setup}D, presenting a total of 500 stimuli at regular intervals of 500~ms. Target stimuli (labeled ``A'' or ``target'' hereafter) and distractor stimuli (labeled ``B'' to ``E'') were presented in three randomized sequences: The ``standard'' sequence (\std{}, abbreviated to \textit{A:std} in figures), consisting of 400 presentations of A and 100 presentations of B; the ``deviant'' sequence (\dev{} or \textit{A:dev}) with 100 A and 400 B, and the many-standards control sequence (\msc{} or \textit{A:con}) with 100 presentations of each of the stimuli A through E. In this way, A is presented as the predominant and therefore expected stimulus (\std{}), as an infrequent violation of an expectation (of B, \dev{}), and, to control for pure adaptation effects, as an equally infrequent stimulus with no strong expectation of any particular input (\msc{}).
 
 In each network, we ran 4 oddball sequences, using the following stimulus site pairings as target/non-target (A/B) pairs: 1/2, 2/1, 3/5, and 5/3, yielding both \dev{} and \std{} sequences for all 4 stimulus sites involved. In addition, we ran one \msc{} sequence involving all stimulus sites, the results of which were shared between data sets. Networks were reset to a fully recovered state between sequence presentations to guarantee their independence. This yielded 4 complete data sets per network, or a total of 120 data sets across all networks.
 
