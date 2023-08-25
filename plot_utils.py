@@ -26,15 +26,29 @@ def _quantity_label(core, seq, stim, index, mean):
         label = string.Template(r'\overline{$label}').substitute(label=label)
     return label
 
+seq = {
+    'dev': 'A-as-dev',
+    'std': 'A-as-std',
+    'msc': 'A-in-con',
+    '': ''
+}
+
+sseq = {
+    'dev': 'A:dev',
+    'std': 'A:std',
+    'msc': 'A:con',
+    '': ''
+}
+
 # Note: Negative space before R and D omitted for better kerning on \Delta \[RD] in the font used in mpl.
-def R(seq='', stim='', index='', mean=False):
-    return _quantity_label('R', seq, stim, index, mean)
+def R(sequence='', stim='', index='', mean=False):
+    return _quantity_label('R', seq[sequence], stim, index, mean)
 
-def T(seq='', stim='', index='', mean=False):
-    return _quantity_label('T', seq, stim, index, mean)
+def T(sequence='', stim='', index='', mean=False):
+    return _quantity_label('T', seq[sequence], stim, index, mean)
 
-def D(seq='', stim='', index='', mean=False):
-    return _quantity_label('D', seq, stim, index, mean)
+def D(sequence='', stim='', index='', mean=False):
+    return _quantity_label('D', seq[sequence], stim, index, mean)
 
 labels = {
     'pspike': 'Spike probability',
