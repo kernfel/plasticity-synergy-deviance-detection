@@ -86,7 +86,7 @@ Excitatory, but not inhibitory, synapses were subject to short-term depression (
 \begin{equation}
     \tau_x \frac{dx_j}{dt} = (1-x_j) - U x_j \delta(t - \hat{t}) \label{eq:xsyn}
 \end{equation}
-with recovery time constant $\tau_x = 150$~ms and release fraction $U = 0.4$.
+with recovery time constant $\tau_x = 150$~ms, consistent with synaptic depression in auditory cortex \citep{David2013-cw,Pennington2020-ua}, and release fraction $U = 0.4$.
 
 When a neuron's membrane potential reached the firing threshold $V_\theta$, a spike was emitted, and the potential was clamped to $V_m = V_{reset} = -74$~mV for a fixed refractory period of 3~ms (excitatory neurons). Inhibitory neurons were modeled as fast-spiking cells with a refractory period of 2~ms and a constant firing threshold $V_\theta = \theta_0 = -54$~mV \citep{Mensi2012-au}. In contrast, excitatory neurons were modeled with threshold adaptation (TA) as in \cite{Teeter2018-iz}, following
 \begin{align}
