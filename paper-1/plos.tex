@@ -18,10 +18,23 @@
 \newcommand{\msc}{\textit{A-in-con}}
 \newcommand{\std}{\textit{A-as-std}}
 
+\newcommand{\ifstringequal}[4]{%
+  \ifnum\pdfstrcmp{#1}{#2}=0
+  #3%
+  \else
+  #4%
+  \fi
+}
+\newcommand{\seqreplace}[1]{\ifstringequal{dev}{#1}{\dev}{%
+    \ifstringequal{std}{#1}{\std}{%
+        \ifstringequal{msc}{#1}{\msc}{#1}%
+    }%
+}}
+
 % Common notation
-\newcommand{\R}[3][]{{}^{#1}_{}\boldsymbol R^{#2}_{#3}}
-\newcommand{\T}[3][]{{}^{#1}_{}\boldsymbol T^{#2}_{#3}}
-\newcommand{\D}[3][]{{}^{#1}_{}\boldsymbol D^{#2}_{#3}}
+\newcommand{\R}[3][]{{}^{\seqreplace{#1}}_{}\boldsymbol R^{#2}_{#3}}
+\newcommand{\T}[3][]{{}^{\seqreplace{#1}}_{}\boldsymbol T^{#2}_{#3}}
+\newcommand{\D}[3][]{{}^{\seqreplace{#1}}_{}\boldsymbol D^{#2}_{#3}}
 \newcommand{\mean}[1]{\overline{#1}}
 \newcommand{\Rhat}[3][]{{}^{#1}_{}\widehat{\boldsymbol R}^{#2}_{#3}}
 
