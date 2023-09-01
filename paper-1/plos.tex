@@ -229,14 +229,14 @@ To understand why the same stimulus A evoked a higher response in \dev{} than in
     \includegraphics[width=\linewidth]{fig-threshold-initial}
     \caption{%
         Responses to \dev{} target trials are larger due to lower initial $\theta$.
-        \textbf{A} Post-stimulus spike histogram across target trials in the sample network, showing trial time along the horizontal axis, and neurons along the vertical, sorted by the time of the first recorded spike across all trials and sequences. Left and middle column, target trials in the \dev{} sequence and \msc{} sequence, respectively; right column, contrast between these two.
+        \textbf{A} Post-stimulus spike histogram across target trials in the sample network, showing trial time along the horizontal axis, and neurons along the vertical, sorted by the time of the first recorded spike across all trials and sequences. Left and middle column, target trials in the \dev{} sequence and \msc{} sequence, respectively (see \EQ{hist_raw}); right column, contrast between these two (\EQ{hist_contrast}).
         \textbf{B} Target trial average of the threshold adaptation voltage $\theta$, with neuron order and columns as in panel A.
         \textbf{C} Target trial average of the membrane potential $V_m$, with neuron order and columns as in panel A. The first 10 ms of the neurons under direct stimulation are masked out to avoid saturation of the colormap.
         \textbf{D} Relationship across excitatory neurons of the sample network between the contrast (dev - msc) in $\theta$ at the start of target trials ($\Delta \T{A}{i}$) and the contrast in the average number of spikes fired in target trials ($\Delta \R{A}{i}$), and associated linear regression.
         \textbf{E} Pearson correlation coefficients $\rho$ of the relationship shown in the previous panel ($\Delta \T{A}{i}$ vs $\Delta \R{A}{i}$ across excitatory neurons), plotted against the corresponding $\Delta \T{A}{exc}$ across data sets. Each marker corresponds to one network and target stimulus. Red markers indicate a significant negative correlation (one-sided Wald test, significance level 0.05). Inset histograms show the distribution of the corresponding values, with orange portions indicating the 95\% confidence interval of the median, calculated by bootstrap with 10000 iterations.
-        \textbf{F} In the sample network, contribution of the contrast in $\theta$ and $V_m$ to bins with greater firing in \dev{} (i.e., positive/red bins in the spike probability contrast, panel A), weighted by that same contrast.
-        \textbf{G} Contribution of $\theta$ relative to the sum of the absolute values of the weighted contributions in panel F.
-        \textbf{H} Relative contribution of $\theta$ across data sets, showing median (solid line) and inter-quartile range (shaded area).
+        \textbf{F} Contribution $C$ of TA to greater firing in \dev{} than \std{}, see \EQ{hist_contrib}. Contributions greater than those of the membrane voltage are shown in red.
+        \textbf{G} Contribution of TA (red) and $V_m$ (blue), weighted by difference in spike probability, and averaged across neurons ($\bar C$, see \EQ{mean_contrib}).
+        \textbf{H} Weighted average contribution $\bar C$ of TA and $V_m$ as in panel G, summarized across data sets. Plotted are the median (solid line) and inter-quartile range (shaded area).
     }
     \label{fig:threshold-initial}
 \end{figure}
