@@ -144,25 +144,45 @@ Throughout this paper, we refer to three main quantities of interest: the stimul
 We employ sub- and superscripts to indicate the precise quantity as follows, using $\R{}{}$ for illustration: $\R[seq]{S}{p}$ refers to the response of neuron(s) $p$, averaged across all trials of type $S$ in the sequence $seq$. We use $p$ to either identify individual neurons (e.g., $i$ or $j$), or a subpopulation (e.g., $exc$) or the whole network (no index), in which case the designated quantity is the median of the individual quantities $\R[seq]{S}{i}$ across the indicated set of neurons. The trial type $S$ is either $A$ or $B$, referring to trials with stimulation at these sites, or $N$, indicating all \textit{n}on-target trials B through E. Finally, we use the notation $\Delta \R{}{}$ to refer to the sequence contrast $\R[dev]{}{} - \R[msc]{}{}$, and $\mean{\R{}{p}}$ to indicate the mean, rather than median, of the individual quantities in a population $p$.
 
 \subsubsection{Contribution of TA to greater activity}
-To quantify the contribution of lower thresholds to greater activity in \dev{} compared to \msc{}, we first calculated the spike probability $\bar P$, average membrane voltage $\bar V_m$, and average threshold adaptation $\bar \theta$, across target trials for each neuron $i$, time step $t$, and sequence $\mathrm{seq}$:
-\begin{equation}
-    \bar{\theta}(i,t,\mathrm{seq}) = \frac{1}{N_{\mathrm{trials}}} \sum_{j \in \mathrm{trials}} \theta(i,t,\mathrm{seq},j) \label{eq:hist_raw}
-\end{equation}
-and equivalently for $p(\mathrm{spike})$ and $V_m$, using the spikes fired in each trial as the basis for the former. Then, we contrasted these values between \dev{} and \msc{}:
-\begin{equation}
-    \Delta \theta(i,t) = \bar{\theta}(i,t,\mathrm{A:dev}) - \bar{\theta}(i,t,\mathrm{A:con}) \label{eq:hist_contrast}
-\end{equation}
-yielding contrasts $\Delta P$, $\Delta V_m$ and $\Delta \theta$. Next, we focused on bins (neurons and time steps) with greater firing in \dev{}, i.e., $\Delta P(i,t) > 0$, and asked to what extent differences in $V_m$ and $\theta$ contributed to this difference in firing. Noticing that only lower thresholds ($\Delta \theta < 0$) and higher voltages ($\Delta V_m > 0$) can cause greater activity, we ignored values outside of these limits, constructing contribution scores
-\begin{equation}
-    C_\theta(i,t) = \frac{[-\Delta \theta(i,t)]^+}{[-\Delta \theta(i,t)]^+ + [\Delta V_m(i,t)]^+} \label{eq:hist_contrib}
-\end{equation}
-for both $\theta$ and $V_m$ (note, $C_{V_m} = 1 - C_\theta$).
-
-Finally, to control for the difference in spike probability, we weighted the contributions by $\Delta P$, following the intuition that greater differences in activity are of greater interest, and averaged across neurons:
-\begin{equation}
-    \bar C_\theta(t) = \frac{1}{|M(t)|} \sum_{i \in M(t)} C(i,t) \label{eq:mean_contrib}
-\end{equation}
-where $M$ selects the bins of interest, i.e., $M(t) = \{i \in \mathrm{exc.~neurons} ~|~ \Delta P(i,t) > 0\}$.
+To quantify the contribution of lower thresholds to greater activity in \dev{} compared to \msc{}, we first calculated the spike probability $\overline P$, average membrane voltage $\overline{V_m}$, and average threshold adaptation $\overline \theta$, across target $\mathrm{trials}$ for each neuron $i$, time step $t$, and sequence $\mathrm{seq}$:
+\begin{align}
+    \overline{P}(i,t,\mathrm{seq}) &= \frac{1}{N_{\mathrm{trials}}} \sum_{j \in \mathrm{trials}} \mathbb{1}(i,t,\mathrm{seq},j) \nonumber \\
+    \overline{V_m}(i,t,\mathrm{seq}) &= \frac{1}{N_{\mathrm{trials}}} \sum_{j \in \mathrm{trials}} V_m(i,t,\mathrm{seq},j) \label{eq:hist_raw} \\
+    \overline{\theta}(i,t,\mathrm{seq}) &= \frac{1}{N_{\mathrm{trials}}} \sum_{j \in \mathrm{trials}} \theta(i,t,\mathrm{seq},j) \nonumber
+\end{align}
+where
+\begin{equation*}
+    \mathbb{1}(i,t,\mathrm{seq},j) =
+    \begin{cases}
+        1 & \text{if neuron $i$ fired at time $t$ in trial $j$ of sequence $\mathrm{seq}$}\\
+        0 & \text{otherwise}
+    \end{cases}
+\end{equation*}
+Then, we contrasted these values between \dev{} and \msc{}:
+\begin{align}
+    \Delta P(i,t) &= \overline{P}(i,t,\dev{}) - \overline{P}(i,t,\msc{}) \nonumber \\
+    \Delta \theta(i,t) &= \overline{\theta}(i,t,\dev{}) - \overline{\theta}(i,t,\msc{}) \label{eq:hist_contrast} \\
+    \Delta V_m(i,t) &= \overline{V_m}(i,t,\dev{}) - \overline{V_m}(i,t,\msc{}) \nonumber
+\end{align}
+Next, we focused on bins (neurons and time steps) with greater firing in \dev{}, i.e., $\Delta P(i,t) > 0$, and asked to what extent differences in $V_m$ and $\theta$ contributed to this difference in firing. Noticing that only lower thresholds ($\Delta \theta < 0$) and higher voltages ($\Delta V_m > 0$) can cause greater activity, we ignored values outside of these limits, constructing contribution scores
+\begin{align}
+    C_{V_m}(i,t) &= \frac{[\Delta V_m(i,t)]^+}{[-\Delta \theta(i,t)]^+ + [\Delta V_m(i,t)]^+} \nonumber \\
+    C_\theta(i,t) = 1-C_{V_m} &= \frac{[-\Delta \theta(i,t)]^+}{[-\Delta \theta(i,t)]^+ + [\Delta V_m(i,t)]^+} \label{eq:hist_contrib}
+\end{align}
+where
+\begin{equation*}
+    [x]^+ =
+    \begin{cases}
+        x & \text{if $x > 0$}\\
+        0 & \text{otherwise}
+    \end{cases}
+\end{equation*}
+Finally, to control for the difference in spike probability, we weighted the contributions by $\Delta P$, following the intuition that greater differences in activity are of greater interest, and averaged across neurons, yielding time courses $\overline{C_{V_m}}$ and $\overline{C_\theta}$ describing the network-wide contribution of voltage and threshold to the deviant response:
+\begin{align}
+    \overline{C_{V_m}}(t) = \frac{1}{|M(t)|} \sum_{i \in M(t)} C_{V_m}(i,t) \Delta P(i,t) \nonumber \\
+    \overline{C_\theta}(t) = \frac{1}{|M(t)|} \sum_{i \in M(t)} C_\theta(i,t) \Delta P(i,t) \label{eq:mean_contrib}
+\end{align}
+where the mask $M$ selects the bins of interest, i.e., $M(t) = \{i \in \mathrm{exc.~neurons} ~|~ \Delta P(i,t) > 0\}$.
 
 \subsubsection{Quantifying the effect of STD}\label{sec:D}
 To quantify the effect of STD on the activity of a given neuron (or, alternatively, on its membrane potential $V_m$) in analogy to the effect of TA captured in $\T{}{}$, we devised a measure $\D{}{}$ to estimate the amount of postsynaptic membrane potential lost due to presynaptic depression, mirroring $\T{}{}$ in the sense that decreasing $V_m$ and increasing the firing threshold both increase the depolarization necessary to make a neuron fire. A measure of STD is necessarily activity-dependent -- a postsynaptic neuron's membrane potential is driven only by presynaptic partners that fire -- so it must be calculated based on observed activity. In order to respect this notion while at the same time minimizing the influence of activity differences between sequences, we used the average response
