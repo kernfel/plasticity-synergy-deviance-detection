@@ -254,9 +254,9 @@ To understand why the same stimulus A evoked a higher response in \dev{} than in
         \textbf{C} Target trial average of the membrane potential $V_m$, with neuron order and columns as in panel A. The first 10 ms of the neurons under direct stimulation are masked out to avoid saturation of the colormap.
         \textbf{D} Relationship across excitatory neurons of the sample network between the contrast (\dev{} - \msc{}) in $\theta$ at the start of target trials ($\Delta \T{A}{i}$) and the contrast in the average number of spikes fired in target trials ($\Delta \R{A}{i}$), and associated linear regression.
         \textbf{E} Pearson correlation coefficients $\rho$ of the relationship shown in the previous panel ($\Delta \T{A}{i}$ vs $\Delta \R{A}{i}$ across excitatory neurons), plotted against the corresponding $\Delta \T{A}{exc}$ across data sets. Each marker corresponds to one network and target stimulus. Red markers indicate a significant negative correlation (one-sided Wald test, significance level 0.05). Inset histograms show the distribution of the corresponding values, with orange portions indicating the 95\% confidence interval of the median, calculated by bootstrap with 10000 iterations.
-        \textbf{F} Contribution $C$ of TA to greater firing in \dev{} than \std{}, see \EQ{hist_contrib}. Contributions greater than those of the membrane voltage are shown in red.
-        \textbf{G} Contribution of TA (red) and $V_m$ (blue), weighted by difference in spike probability, and averaged across neurons ($\bar C$, see \EQ{mean_contrib}).
-        \textbf{H} Weighted average contribution $\bar C$ of TA and $V_m$ as in panel G, summarized across data sets. Plotted are the median (solid line) and inter-quartile range (shaded area).
+        \textbf{F} Contribution $C_\theta$ of TA to greater firing in \dev{} than \std{}, see \EQ{hist_contrib}. TA contributions that exceed the contribution of membrane voltage are shown in red.
+        \textbf{G} Contributions of TA (red) and $V_m$ (blue), weighted by difference in spike probability, and averaged across neurons ($\bar C$, see \EQ{mean_contrib}).
+        \textbf{H} Weighted average contributions $\bar C$ of TA and $V_m$ as in panel G, summarized across data sets. Plotted are the median (solid line) and inter-quartile range (shaded area).
     }
     \label{fig:threshold-initial}
 \end{figure}
