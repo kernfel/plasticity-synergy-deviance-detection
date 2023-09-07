@@ -423,18 +423,18 @@ As shown in \FIG{stimulation-effects}B, we find that STD is entirely capable of 
 \section{Discussion}\label{sec:discussion}
 
 \begin{figure}
-    \includegraphics[width=\linewidth]{fig-conclusion}
+    \includegraphics[width=\linewidth]{fig-concept}
     \caption{%
         Illustration of the origin of DD in our model.
-        \textbf{A} Left: In an oddball context, the regular inputs are encoded in the network by high local fatigue, which reduces their overall response, leading to low global fatigue. Deviant inputs encounter low local and global fatigue and therefore evoke a large response. Right: In an irregular context, the network frequently encounters rare stimuli with low local fatigue, leading to large overall responses and high global fatigue, with these two (global response and fatigue) counter-balancing each other. Deviant inputs encounter this high global fatigue and therefore evoke smaller responses.
-        \textbf{B} Adding additional fatigue (e.g., STD) affects these situations differently. Left: In an oddball context, the additional fatigue further reduces the regular response, permitting even greater recovery of the wider network. Right: In an irregular context, global fatigue is instead increased, and all responses reduced.
+        \textbf{A} The situation in \dev{}. Frequent presentation of non-target B causes strong local fatigue around the stimulation site for B, preventing the response from spreading to the wider network. Therefore, when target stimulus A is presented (right), large parts of the network are recovered, which responds vigorously and widely as a consequence.
+        \textbf{B} The situation in \msc{}. Stimuli rarely repeat, allowing local fatigue around stimulus sites to recover, and thus responses to spread widely, causing fatigue throughout the network. Therefore, when target stimulus A is presented, the network is globally fatigued and responds less vigorously than in \dev{}.
     }
     \label{fig:conclusion}
 \end{figure}
 
 \subsection{Deviance detection emerges from encoding regularities}
 
-In this study, we showed that non-synaptic neuronal adaptation can induce true deviance detection in a randomly wired, but spatially organized network of simple leaky integrate-and-fire neurons. Neuronal adaptation achieves this, as illustrated in \FIG{conclusion}A, by suppressing the response of neurons local to the frequently stimulated site. This drastically reduces the response to frequent stimulations at an early stage of signal propagation through the network, allowing the more distant parts of the network to recover from adaptation and respond vigorously to infrequent deviant stimuli. By contrast, a more varied paradigm including inputs at multiple stimulation sites allows local fatigue to partly recover between stimulus presentations, resulting in a greater response through greater recruitment of the wider network. As a result, the network becomes more adapted, diminishing the response to each individual stimulus. True deviance detection, then, is a side effect of encoding and adapting to the regularity of the frequently presented stimulus, which leaves the wider network less adapted and more responsive than usual.
+In this study, we showed that non-synaptic neuronal adaptation can induce true deviance detection in a randomly wired, but spatially organized network of simple leaky integrate-and-fire neurons. Neuronal adaptation achieves this, as illustrated in \FIG{conclusion}A, by suppressing the response of neurons local to the frequently stimulated site. This drastically reduces the response to frequent stimulations at an early stage of signal propagation through the network, allowing the more distant parts of the network to recover from adaptation and respond vigorously to infrequent deviant stimuli. By contrast, a more varied paradigm including inputs at multiple stimulation sites allows local fatigue to partly recover between stimulus presentations, resulting in a greater response through greater recruitment of the wider network. As a result, the network becomes more fatigued, diminishing the response to each individual stimulus. True deviance detection, then, is a side effect of encoding and adapting to the regularity of the frequently presented stimulus, which leaves the wider network less adapted and more responsive than usual.
 
 \subsection{Biological basis of neuronal threshold adaptation}
 
