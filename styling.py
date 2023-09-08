@@ -13,19 +13,19 @@ sns.set_theme(style='ticks', font_scale=0.75, rc={
     'text.usetex': False,
     'pdf.fonttype': 42,
     'ps.fonttype': 42,
-    'font.size': 7,
-    'axes.labelsize': 7,
-    'axes.titlesize': 8,
+    'font.size': 9,
+    'axes.labelsize': 9,
+    'axes.titlesize': 10,
     'axes.labelpad': 2,
     'axes.linewidth': 0.5,
     'axes.titlepad': 4,
     'grid.linewidth': 0.4,
     'lines.linewidth': 0.5,
     'patch.linewidth': 0.5,
-    'legend.fontsize': 6,
-    'legend.title_fontsize': 7,
-    'xtick.labelsize': 6,
-    'ytick.labelsize': 6,
+    'legend.fontsize': 8,
+    'legend.title_fontsize': 9,
+    'xtick.labelsize': 8,
+    'ytick.labelsize': 8,
     'xtick.major.size': 2,
     'xtick.major.pad': 1,
     'xtick.major.width': 0.5,
@@ -63,7 +63,7 @@ sns.set_theme(style='ticks', font_scale=0.75, rc={
 })
 
 label_kwargs = {'fontsize': 12, 'fontweight': 'bold'}
-annotation_kwargs = {'fontsize': 7}
+annotation_kwargs = {'fontsize': 9}
 axline_kwargs = {'color': 'darkgrey', 'zorder': -1, 'lw': sns.mpl.rcParams['axes.linewidth']}
 
 cmap_seq = 'viridis'
